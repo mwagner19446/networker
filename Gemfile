@@ -55,3 +55,5 @@ gem 'pry-rails'
 gem 'oauth'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'httparty'
