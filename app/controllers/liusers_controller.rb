@@ -1,0 +1,3 @@
+class LiusersController < ApplicationController
+
+end 

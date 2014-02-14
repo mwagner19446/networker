@@ -1,0 +1,60 @@
+<h1><%=@user.name%></h1>
+
+User Tasks: 
+<table >
+  <tr>
+    <th>Type</th>
+    <th>Title</th>
+    <th>Notes</th>
+    <th></th>
+  </tr>
+  <% @tasks.each do |task| %>
+  <tr>
+    <td><%=task.t_type%></td>
+    <td><%=task.title%></td>
+    <td><%=task.notes%></td>
+    <td>DELETE</td>
+  </tr> 
+  <% end %>
+</table>
+
+
+<%= form_for [@user, @task] do |f| %>
+  <%= f.label :t_type %>
+  <%= f.text_field :t_type %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.submit %>
+<% end %>
+
+User Connections: 
+<table >
+  <tr>
+    <th>Type</th>
+    <th>Name</th>
+  </tr>
+  <% @connections.each do |connection| %>
+  <tr>
+    <td><%=connection.c_type%></td>
+    <td><%=connection.name%></td>
+    <td>DELETE</td>
+  </tr> 
+  <% end %>
+</table>
+
+<%= form_for [@user, @connection] do |f| %>
+  <%= f.label :c_type %>
+  <%= f.text_field :c_type %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
+
+
