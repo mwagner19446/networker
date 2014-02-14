@@ -1,0 +1,19 @@
+<h1>Hello World </h1>
+
+Linked In Connections: 
+<table >
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Headline</th>
+    <th><th>
+  </tr>
+  <% @response.each do |response| %>
+  <tr>
+    <td><img src="<%=response["pictureUrl"]%>"></td>
+    <td><%=response["firstName"]+" "+response["lastName"]%></td>
+    <td><%=response["headline"]%></td>
+    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(response["firstName"]+" "+response["lastName"]) ), method: "post" %></td>
+  </tr> 
+  <% end %>
+</table>

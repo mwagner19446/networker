@@ -11,8 +11,8 @@ Task.delete_all
 Connection.delete_all
 Liuser.delete_all
 
-mw = User.create(name: "Michael Wagner", title: "Business Analyst", photo_url: "http://m.c.lnkd.licdn.com/media/p/3/000/103/00b/2690744.jpg", password: "winner")
-sj = User.create(name: "Sam Jones", title: "Director, Engineering", photo_url: "http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/4/000/155/086/1b58479.jpg", password: "password")
+mw = User.create(name: "Michael Wagner", title: "Business Analyst", photo_url: "http://m.c.lnkd.licdn.com/media/p/3/000/103/00b/2690744.jpg", password: "winner", email: "michael.k.wagner@gmail.com")
+sj = User.create(name: "Sam Jones", title: "Director, Engineering", photo_url: "http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/4/000/155/086/1b58479.jpg", password: "password", email: "joanna.giordano@gmail.com")
 
 ja = Liuser.create(linkedin_id: "bRx1Qvk1xt", first_name: "Jason", last_name: "Adamek", headline: "Corporate Actions and Dividends Manager at LPL Financial", industry: "Financial Services", picture_url: "http://m.c.lnkd.licdn.com/mpr/mprx/0_M5umg6I0q-yAnLK2cTojgkgpNAd3nLA2RFZAgkRawqjAWT6uz_yC1X7hsxWOzGrhZQmKtiLQ8DDJ")
 ab = Liuser.create(linkedin_id: "_Vi2TQDoHV", first_name: "Aamir", last_name: "Basheer", headline: "Director of Business Analytics at LearnVest", industry: "Internet", picture_url: "http://m.c.lnkd.licdn.com/mpr/mprx/0_A8PuXPp1t7nlBBOnlCz0Xrp1ru-xB-OnPTb1XrfhfW67end9gQ_8EKUaOGt8qz0sr_ltIBlEsZ3p")
