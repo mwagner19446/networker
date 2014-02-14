@@ -27,6 +27,11 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.14)
+    authlogic (2.1.6)
+      activesupport
+    authlogic-oauth (1.0.8)
+      activesupport
+      hoe (>= 1.12.2)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -46,6 +51,8 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
+    hoe (3.9.0)
+      rake (>= 0.8, < 11.0)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -61,6 +68,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
+    oauth (0.4.7)
     pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
@@ -124,10 +132,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic (= 2.1.6)
+  authlogic-oauth (= 1.0.8)
   coffee-rails (~> 4.0.0)
   debugger
   jbuilder (~> 1.2)
   jquery-rails
+  oauth
   pg
   pry-rails
   rails (= 4.0.2)

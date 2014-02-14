@@ -45,3 +45,11 @@ end
 gem 'debugger', group: [:development, :test]
 
 gem 'pry-rails'
+
+##http://stackoverflow.com/questions/5332736/authlogic-oauth-fails-with-error-uninitialized-constant-usersessionoauth-in
+
+gem 'authlogic', '2.1.6'
+
+gem 'authlogic-oauth', '1.0.8', :require => 'authlogic-oauth'
+
+gem 'oauth'
