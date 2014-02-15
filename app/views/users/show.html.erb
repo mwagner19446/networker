@@ -13,7 +13,7 @@ User Tasks:
     <td><%=task.t_type%></td>
     <td><%=task.title%></td>
     <td><%=task.notes%></td>
-    <td>DELETE</td>
+    <td><%=link_to "Delete", user_task_path(params[:id],task.id), method: "delete" %></td>
   </tr> 
   <% end %>
 </table>
@@ -49,7 +49,7 @@ User Connections:
     <td><%=connection.c_type%></td>
     <td><%=connection.name%></td>
     <td>DELETE</td>
-    <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Catch Up "+connection.name) ), method: "post" %></td>
+    <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Catch Up: "+connection.name) ), method: "post" %></td>
   </tr> 
   <% end %>
 </table>
