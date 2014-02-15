@@ -15,6 +15,6 @@ Create opportunities to purposefully connect others
 
 <br />
 <div class="sign_in">
-<%= link_to "Begin the Journey", new_user_path %>
+<%= link_to("Begin the Journey", new_user_path) if session[:user_id].nil? %>
 <div>
 

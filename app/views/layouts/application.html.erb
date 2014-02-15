@@ -8,8 +8,8 @@
 </head>
 <body>
 <header>
-  <%= link_to "Home", root_path %> <br \>
-  <%= link_to("Dashboard", user_path(params[:id])) unless session[:user_id].nil? %> <br \>
+  <%=  link_to "Home", root_path %> <br \>
+  <%= link_to("Dashboard", user_path(session[:user_id])) unless session[:user_id].nil? %> <br \>
   <%= link_to("Login", sessions_path )if session[:user_id].nil? %><br \>
   <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}!" , sessions_path, method: "delete") unless session[:user_id].nil? %><br |>
 </header>
