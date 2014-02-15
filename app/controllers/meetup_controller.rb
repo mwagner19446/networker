@@ -1,17 +1,13 @@
 class MeetupController < ApplicationController
-  
-  def meetup_search
-    @zipcode = params[:zipcode]
-    @topic = params[:topic] 
-    get_meetup
-    render(:back)
-  end 
 
   def list
   @from_meetup 
   zipcode = params[:zipcode]
   topic = params[:topic]
-  get_meetup(zipcode, topic)
+    binding.pry
+    unless topic.nil? 
+      get_meetup(zipcode, topic)
+    end 
   render(:list)
   end 
 
