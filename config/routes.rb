@@ -10,6 +10,9 @@ NetworkerApp::Application.routes.draw do
   get "/users/:id/lilist", to: "liusers#list"
   get "/users/:id/meetuplist", to: "meetup#list"
   post "/users/:id/meetuplist", to: "meetup#list"
+  get "/users/:id/upcomingmeetup", to: "meetup#upcoming"
+  post "/users/:id/upcomingmeetup", to: "meetup#upcoming"
+
   get "/sessions", to: "sessions#new"
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#destroy"
