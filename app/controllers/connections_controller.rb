@@ -10,5 +10,10 @@ class ConnectionsController < ApplicationController
     redirect_to(:back)
   end 
 
+  def destroy
+    @connection = Connection.find_by(id: params[:id])
+    @connection.destroy
+    redirect_to(:back)
+  end 
 
 end 
