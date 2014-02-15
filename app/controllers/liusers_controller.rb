@@ -1,7 +1,8 @@
 class LiusersController < ApplicationController
-  before_action(:get_linkedin, { only: [:list] })
   
+
   def list
+  @liusers = Liuser.all
   render(:list)
   end 
 
@@ -20,6 +21,13 @@ class LiusersController < ApplicationController
     path = "/v1/people/~/connections?format=json"
     @response = JSON(access_token.get(path).body)
     @response = @response["values"]
+    # @response.each do |response|
+    #   Liuser.create(:linkedin_id response["id"], :first_name response["firstName"], :last_name response["lastName"], 
+    #     :headline response["headline"], 
+    #     :industry response["industry"], 
+    #     :picture_url response["pictureUrl"])
+    # end 
+
   end
 
 end 

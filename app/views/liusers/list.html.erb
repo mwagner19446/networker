@@ -1,5 +1,19 @@
 <h1>Linked In Connections:</h1>
 
+
+<%consumer_key = LI_CONSUMER_KEY%>
+<%consumer_secret = LI_CONSUMER_SECRET%>
+
+<a href="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=<%=consumer_key%>&state=DCEEFWF45453sdffef424&redirect_uri=http://localhost:3000/users/<%=params[:id]%>/lilist">Login Via Linked In</a>
+
+<br \>
+
+<a href="https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code
+&code=<%=params[:code]%>
+&redirect_uri=http://localhost:3000/users/<%=params[:id]%>/lilist
+&client_id=<%=consumer_key%>
+&client_secret=<%=consumer_secret%>">Authorize</a>
+
 <table >
   <tr>
     <th></th>
@@ -7,12 +21,14 @@
     <th>Headline</th>
     <th><th>
   </tr>
-  <% @response.each do |response| %>
+  <% @liusers.each do |liuser| %>
   <tr>
-    <td><img src="<%=response["pictureUrl"]%>"></td>
-    <td><%=response["firstName"]+" "+response["lastName"]%></td>
-    <td><%=response["headline"]%></td>
-    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(response["firstName"]+" "+response["lastName"]) ), method: "post" %></td>
+    <td><img src="<%=liuser.picture_url%>"></td>
+    <td><%=liuser.first_name+" "+liuser.last_name%></td>
+    <td><%=liuser.headline%></td>
+    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name) ), method: "post" %></td>
   </tr> 
   <% end %>
 </table>
+
+<%binding.pry%>
