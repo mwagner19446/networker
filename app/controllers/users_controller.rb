@@ -20,14 +20,8 @@ class UsersController < ApplicationController
     @connections = Connection.where(user_id: params[:id])
     @task = Task.new
     @connection = Connection.new
-    @from_meetup
     render(:show)
   end 
-
-  def get_meetup(zipcode, keyword)
-    meetup_api = MEETUP_API    
-    @from_meetup = HTTParty.get("http://api.meetup.com/groups.json/?zip=#{zipcode}&topic=#{keyword}&order=members&key=#{}{meetup_api}")
-  end
 
   def user_params
     params.require(:user).permit(:name, :title, :password, :email)

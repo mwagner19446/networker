@@ -18,6 +18,9 @@ User Tasks:
   <% end %>
 </table>
 
+<a href="/users/<%= @user.id %>/meetuplist">Search Meetups</a>
+
+
 
 <%= form_for [@user, @task] do |f| %>
   <%= f.label :t_type %>
@@ -60,7 +63,6 @@ User Connections:
 <a href="/users/<%= @user.id %>/lilist">Linked In List</a>
 
 
-<%= binding.pry; @from_meetup %>
 
 
 
