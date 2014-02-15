@@ -24,7 +24,7 @@ Find Meetups that match your interest
       <td><%=meetup["status"]%></td>
       <td><%=meetup["group"]["name"]%></td>
       <td><%=Time.at(meetup["time"]/1000)%></td>
-      <td></td>
+      <td><%= link_to "Add", user_tasks_path(params[:id], :title=>(meetup["group"]["name"]) ), method: "post" %></td>
     </tr> 
     <% end %>
   </table>
