@@ -1,13 +1,15 @@
 class TasksController < ApplicationController
 
   def create
-    @task = params["task"]
-    if @task.nil?
-      Task.create(title: params["title"],user_id: params[:user_id])
-    else 
-      Task.create(t_type: @task["t_type"], title: @task["title"], notes: @task["notes"], user_id: params[:user_id])
+    binding.pry
+    if params["task"].nil? ##From the Meetup Page
+      Task.create(title: params["title"],
+        user_id: params[:user_id])
+    else ##From the Dashboard Form Field
+      task = Task.create(task_params)
+      task.user_id = params[:user_id]
+      task.save
     end 
-    
     redirect_to(:back)
   end 
 
@@ -17,5 +19,9 @@ class TasksController < ApplicationController
     redirect_to(:back)
   end 
 
+  private 
+  def task_params
+    params.require(:task).permit(:name, :t_type, :notes)
+  end 
 
 end 
