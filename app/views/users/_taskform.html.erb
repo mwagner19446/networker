@@ -10,5 +10,9 @@ Manually Create New Tasks:
   <%= f.label :notes %>
   <%= f.text_field :notes %>
   <p>
+  <%= f.label :due_date %>
+  <%= f.datetime_field :due_date %>
+
+  <p>
   <%= f.submit %>
 <% end %>
