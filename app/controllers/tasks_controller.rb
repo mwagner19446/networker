@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
 
   def create
-    binding.pry
     if params["task"].nil? ##From the Meetup Page
       Task.create(title: params["title"],
         user_id: params[:user_id])

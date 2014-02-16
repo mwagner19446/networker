@@ -4,7 +4,8 @@ class ConnectionsController < ApplicationController
     if params["connection"].nil?  ###From the Linked In List Page
       Connection.create(name: params[:name], 
         user_id: params[:user_id], 
-        c_type: params[:c_type])
+        c_type: params[:c_type],
+        photo_url: params[:picture_url])
     else  ### From the Dashboard Form Field
       con = Connection.create(connection_params) 
       con.user_id = params[:user_id]

@@ -19,7 +19,7 @@
     <td><img src="<%=liuser.picture_url%>"></td>
     <td><%=liuser.first_name+" "+liuser.last_name%></td>
     <td><%=liuser.headline%></td>
-    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name) ), method: "post" %></td>
+    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url ), method: "post" %></td>
   </tr> 
   <% end %>
 </table>
