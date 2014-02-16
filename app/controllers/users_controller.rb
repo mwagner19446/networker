@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @tasks = Task.where(user_id: params[:id])
+    @tasks.order(due_date: :desc)
     @connections = Connection.where(user_id: params[:id])
     @task = Task.new
     @connection = Connection.new

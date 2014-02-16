@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   def create
     if params["task"].nil? ##From the Meetup Page
       Task.create(title: params["title"],
-        user_id: params[:user_id])
+        user_id: params[:user_id],
+        due_date: params[:due_date])
     else ##From the Dashboard Form Field
       task = Task.create(task_params)
       task.user_id = params[:user_id]

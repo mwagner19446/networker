@@ -4,6 +4,7 @@
     <th>Type</th>
     <th>Title</th>
     <th>Notes</th>
+    <th>Due Date</th>
   </tr>
   <% @tasks.each do |task| %>
   <tr>
@@ -11,6 +12,7 @@
     <td><%=task.t_type%></td>
     <td><%=task.title%></td>
     <td><%=task.notes%></td>
+    <td><%=task.due_date%></td>
   </tr> 
   <% end %>
 </table>

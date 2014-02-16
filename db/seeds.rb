@@ -22,10 +22,10 @@ lf = Liuser.create(linkedin_id: "Y_KKpGh3lG", first_name: "Laurent", last_name: 
 kg = Liuser.create(linkedin_id: "Yp9Gu1eWXl", first_name: "Kean", last_name: "Gardner", headline: "Account Management, Process and Project Management", industry: "Internet", picture_url: "http://m.c.lnkd.licdn.com/mpr/mprx/0_r9mLMnK-HQcYtua7rq29MzlrX65lrEa7tAssMzKfRilTfaJfyrYdcvX3oeLmPSf_AzuRntCPgsQl")
 
 
-Task.create(title: "Meetup: Big Data", t_type: "Discovery", notes: "Pass out cards", user: mw)
-Task.create(title: "Meetup: Lean Startup", t_type: "Discovery", notes: "Eat Pizza", user: mw)
-Task.create(title: "Lunch: Jeff", t_type: "Radar", notes: "Ask about jobs in Analytics", user: mw)
-Task.create(title: "Pro Bono:  Wordpress for Animal Shelter", t_type: "Service", notes: " ", user: sj)
+Task.create(title: "Meetup: Big Data", t_type: "Discovery", notes: "Pass out cards", due_date: Time.now+10.days, user: mw)
+Task.create(title: "Meetup: Lean Startup", t_type: "Discovery", notes: "Eat Pizza", due_date: Time.now+11.days, user: mw)
+Task.create(title: "Lunch: Jeff", t_type: "Radar", notes: "Ask about jobs in Analytics", due_date: Time.now+12.days, user: mw)
+Task.create(title: "Pro Bono:  Wordpress for Animal Shelter", t_type: "Service", notes: " ", due_date: Time.now+14.days, user: sj)
 
 Connection.create(name: "Jason A", c_type: "Connector", user: mw, liuser: ja)
 Connection.create(name: "Aamir B", c_type: "Mentor", user: mw, liuser: ab)
