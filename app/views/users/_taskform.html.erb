@@ -1,12 +1,14 @@
+Manually Create New Tasks:
 <%= form_for [@user, @task] do |f| %>
+  <p>
   <%= f.label :t_type %>
   <%= f.text_field :t_type %>
-
+  <p>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+  <p>
   <%= f.label :notes %>
   <%= f.text_field :notes %>
-
+  <p>
   <%= f.submit %>
 <% end %>

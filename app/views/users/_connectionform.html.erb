@@ -1,9 +1,11 @@
+Manually Add New Connections
 <%= form_for [@user, @connection] do |f| %>
+  <p>
   <%= f.label :c_type %>
-  <%= f.text_field :c_type %>
-
+  <%= f.text_field :c_type %> 
+  <p>
   <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit %>
+  <%= f.text_field :name %> 
+  <p>
+  <%= f.submit %> 
 <% end %>

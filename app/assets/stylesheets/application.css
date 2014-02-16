@@ -28,3 +28,17 @@
   clear: both;
   display: block;
 }
+
+.display {
+  float: left;
+  display:inline-block;
+}
+
+.action {
+  padding-left: 21px;
+  display: inline-block;
+}
+
+.separator {
+  clear: both;
+}
