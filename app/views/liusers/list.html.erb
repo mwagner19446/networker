@@ -4,15 +4,22 @@
 <%consumer_key = LI_CONSUMER_KEY%>
 <%consumer_secret = LI_CONSUMER_SECRET%>
 
+
+
 <a href="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=<%=consumer_key%>&state=DCEEFWF45453sdffef424&redirect_uri=http://localhost:3000/users/<%=params[:id]%>/lilist">Login Via Linked In</a>
 
 <br \>
+
+<%= link_to "Add Linked In Contacts", liusers_path, method: "post"%> <br \>
+
 
 <a href="https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code
 &code=<%=params[:code]%>
 &redirect_uri=http://localhost:3000/users/<%=params[:id]%>/lilist
 &client_id=<%=consumer_key%>
 &client_secret=<%=consumer_secret%>">Authorize</a>
+
+
 
 <table >
   <tr>
@@ -30,5 +37,3 @@
   </tr> 
   <% end %>
 </table>
-
-<%binding.pry%>
