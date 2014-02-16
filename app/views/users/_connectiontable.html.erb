@@ -7,10 +7,10 @@
   </tr>
   <% @connections.each do |connection| %>
   <tr>
-    <td><%=link_to image_tag("delete.png",size: "20x20"), user_connection_path(params[:id],connection.id), method: "delete" %></td>
+    <td><%=link_to image_tag("delete.png",size: "21x21"), user_connection_path(params[:id],connection.id), method: "delete" %></td>
     <td><%=connection.c_type%></td>
     <td><%=connection.name%></td>
-    <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Catch Up: "+connection.name) ), method: "post" %></td>
+    <td><%= link_to image_tag("coffee.png", size:"21x21"), user_tasks_path(params[:id], :title=>("Catch Up: "+connection.name) ), method: "post" %></td>
   </tr> 
   <% end %>
 </table>
