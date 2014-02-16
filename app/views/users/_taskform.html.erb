@@ -1,8 +1,8 @@
 Manually Create New Tasks:
 <%= form_for [@user, @task] do |f| %>
   <p>
-  <%= f.label :t_type %>
-  <%= f.text_field :t_type %>
+  <%= f.label :t_type, ('Task Type') %>
+  <%= f.select :t_type, options_for_select(["Discovery","Radar","Service"])%>
   <p>
   <%= f.label :title %>
   <%= f.text_field :title %>
