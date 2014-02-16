@@ -1,0 +1,9 @@
+<%= form_for [@user, @connection] do |f| %>
+  <%= f.label :c_type %>
+  <%= f.text_field :c_type %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
