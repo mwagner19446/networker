@@ -9,8 +9,8 @@ NetworkerApp::Application.routes.draw do
   root "welcome#index"
   post "/liusers", to: "liusers#create"
   get "/users/:id/lilist", to: "liusers#list"
-  get "/users/:id/meetuplist", to: "meetup#list"
-  post "/users/:id/meetuplist", to: "meetup#list"
+  get "/users/:id/meetupgroup", to: "meetup#group"
+  post "/users/:id/meetupgroup", to: "meetup#group"
   get "/users/:id/upcomingmeetup", to: "meetup#upcoming"
   post "/users/:id/upcomingmeetup", to: "meetup#upcoming"
 
