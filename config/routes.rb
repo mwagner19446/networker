@@ -7,6 +7,7 @@ NetworkerApp::Application.routes.draw do
   end 
 
   root "welcome#index"
+  get "about", to: "welcome#about"
   post "/liusers", to: "liusers#create"
   get "/users/:id/lilist", to: "liusers#list"
   get "/users/:id/meetupgroup", to: "meetup#group"
