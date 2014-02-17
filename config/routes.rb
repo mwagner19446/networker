@@ -17,6 +17,7 @@ NetworkerApp::Application.routes.draw do
 
   get "/sessions", to: "sessions#new"
   post "/sessions", to: "sessions#create"
+  post "/sessions/superuser", to: "sessions#superuser"
   delete "/sessions", to: "sessions#destroy"
   
 

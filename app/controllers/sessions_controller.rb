@@ -14,8 +14,22 @@ class SessionsController < ApplicationController
     end 
   end 
   
+  def superuser
+    if session[:superuser_name].nil?
+      @superuser = User.find_by(id: session[:user_id])  
+      session[:superuser_name] = @superuser.name
+    end 
+    @user = User.find_by(id: params[:user_id])
+    session[:user_id] = @user.id
+    
+    redirect_to(user_path(@user))
+  end 
+
+
   def destroy
-      session[:user_id] = nil
-      redirect_to("/")
+    session[:user_id] = nil
+    session[:superuser] = nil
+    session[:superuser_name] = nil
+    redirect_to("/")
   end 
 end 
