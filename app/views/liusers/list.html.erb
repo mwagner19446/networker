@@ -13,13 +13,17 @@
     <th>Name</th>
     <th>Headline</th>
     <th><th>
+    <th><th>
+    <th><th>
   </tr>
   <% @liusers.each do |liuser| %>
   <tr>
     <td><img src="<%=liuser.picture_url%>"></td>
     <td><%=liuser.first_name+" "+liuser.last_name%></td>
     <td><%=liuser.headline%></td>
-    <td><%= link_to "Add", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url ), method: "post" %></td>
+    <td><%= link_to "Add Connector", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Connector" ), method: "post" %></td>
+    <td><%= link_to "Add Mentor", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Mentor" ), method: "post" %></td>
+    <td><%= link_to "Add Peer", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Peer" ), method: "post" %></td>
   </tr> 
   <% end %>
 </table>
