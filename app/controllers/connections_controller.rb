@@ -14,6 +14,17 @@ class ConnectionsController < ApplicationController
     redirect_to(:back)
   end 
 
+  def edit
+    @user = User.find_by(id: params[:user_id]) 
+    @connection = Connection.find_by(id: params[:id])
+  end 
+
+  def update
+    @connection= Connection.find_by(id: params[:id])
+    @connection.update(connection_params)
+    redirect_to(:back)
+  end 
+
   def destroy
     @connection = Connection.find_by(id: params[:id])
     @connection.destroy
