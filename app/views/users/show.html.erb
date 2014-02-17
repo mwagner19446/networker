@@ -1,4 +1,9 @@
-<h1><%=@user.name%></h1>
+<h1>
+  <img src="<%=@user.photo_url%>" height="80" width="80" >
+  <%=@user.name%>
+  <%=link_to image_tag("edit.png"), edit_user_path(@user.id)%>
+
+</h1>
 
 <h2>User Tasks: </h2>
 <div class="display"><%= render "tasktable" %> </div>
