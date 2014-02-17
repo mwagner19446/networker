@@ -1,3 +1,12 @@
+<% unless @message.nil? %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <li><em><%= @message %></em></li>
+    </ul>
+  </div>
+<% end %>
+
 <%=form_tag "/sessions" do %>
   <%= label_tag :email %>
   <%= email_field_tag :email %>
