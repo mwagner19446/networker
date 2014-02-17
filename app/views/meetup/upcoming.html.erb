@@ -16,8 +16,8 @@ Find Meetups Events that match your interest
     <tr>
       <td><%=meetup["status"]%></td>
       <td><%=meetup["group"]["name"]%></td>
-      <td><%=Time.at(meetup["time"]/1000)%></td>
-      <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000) ), method: "post"%></td>
+      <td><%=Time.at(meetup["time"]/1000).strftime("%A %Y-%m-%d %I:%M %p")%></td>
+      <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p") ), method: "post"%></td>
     </tr> 
     <% end %>
   </table>

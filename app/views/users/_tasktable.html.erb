@@ -12,7 +12,7 @@
     <td><%=task.t_type%></td>
     <td><%=link_to task.title, edit_user_task_path(params[:id], task.id)%></td>
     <td><%=task.notes%></td>
-    <td><%=task.due_date%></td>
+    <td><%=task.due_date.strftime("%Y-%m-%d %I:%M %p")%></td>
   </tr> 
   <% end %>
 </table>
