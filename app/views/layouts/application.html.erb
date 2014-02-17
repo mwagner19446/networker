@@ -8,11 +8,14 @@
 </head>
 <body>
 <header>
-  <%= link_to "Home", root_path %> <br \>
-  <%= link_to("Dashboard", user_path(session[:user_id])) unless session[:user_id].nil? %> <br \>
-  <%= link_to("Login", sessions_path )if session[:user_id].nil? %><br \>
-  <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}", sessions_path, method: "delete") unless session[:user_id].nil? %><br \>
-  <%= link_to "About Us", about_path %> <br \>
+  <%= link_to "Home", root_path %> 
+  <%= link_to("Dashboard", user_path(session[:user_id])) unless session[:user_id].nil? %> 
+  <%= link_to "About Us", about_path %> 
+
+  <div id="sign_in">
+  <%= link_to("Login", sessions_path )if session[:user_id].nil? %>
+  <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}", sessions_path, method: "delete") unless session[:user_id].nil? %>
+  </div>
 
 </header>
 

@@ -15,18 +15,34 @@
   text-align: center;
 }
 
+#homepage {
+  margin: 0 auto;
+}
+
+#sign_in {
+  float: right;
+}
+
 .box { 
   display: inline-block;
   float: left;
   margin: 30px;
   border-style: solid;
-  width: 200px;
+  width: 300px;
   height: 200px;
 }
 
 .sign_in {
   clear: both;
   display: block;
+  width: 300px;
+  height: 100px;
+  background-color: red; 
+  border-style: solid;
+  text-align: center; 
+  line-height: 100px;
+  margin: 0 auto;
+  
 }
 
 .display {

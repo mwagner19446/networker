@@ -8,7 +8,6 @@ class TasksController < ApplicationController
     else ##From the Dashboard Form Field
       task = Task.create(task_params)
       task.user_id = params[:user_id]
-      task.due_date = Time.now+10.days
       task.save
     end 
     redirect_to(:back)

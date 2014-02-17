@@ -1,21 +1,22 @@
 
 <h1 id="title">Welcome to Net:Workr</h1>
-
-<div class="box">
-Problem: 
-LinkedIn is an excellent rolodex, but your professional network is smaller and more intimate.  Your tool to manage these relationships must be different.  
-</div>
-<div class="box">
-Solution:  
-A Systemic Application for you to manage your high leverage relationships.  
-</div>
-<div class="box">
-Our Mission:  
-Create opportunities to purposefully connect others 
+<div id="homepage">
+  <div class="box">
+  Problem: 
+  LinkedIn is an excellent rolodex, but your professional network is smaller and more intimate.  Your tool to manage these relationships must be different.  
+  </div>
+  <div class="box">
+  Solution:  
+  A Systemic Application for you to manage your high leverage relationships.  
+  </div>
+  <div class="box">
+  Our Mission:  
+  Create opportunities to purposefully connect others 
+  </div>
 </div>
 
 <br />
 <div class="sign_in">
-<%= link_to("Begin the Journey", new_user_path) if session[:user_id].nil? %>
+<%= link_to("Sign Up and Begin Your Journey", new_user_path) if session[:user_id].nil? %>
 <div>
 
