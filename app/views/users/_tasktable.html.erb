@@ -10,7 +10,7 @@
   <tr>
     <td><%=link_to image_tag("delete.png",size: "20x20"), user_task_path(params[:id],task.id), method: "delete" %></td>
     <td><%=task.t_type%></td>
-    <td><%=task.title%></td>
+    <td><%=link_to task.title, edit_user_task_path(params[:id], task.id)%></td>
     <td><%=task.notes%></td>
     <td><%=task.due_date%></td>
   </tr> 

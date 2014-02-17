@@ -13,6 +13,18 @@ class TasksController < ApplicationController
     redirect_to(:back)
   end 
 
+  def edit
+    @user = User.find_by(id: params[:user_id]) 
+    @task = Task.find_by(id: params[:id])
+  end 
+
+  def update
+    @task = Task.find_by(id: params[:id])
+    @task.update(task_params)
+    redirect_to(:back)
+
+  end 
+
   def destroy
     @task = Task.find_by(id: params[:id])
     @task.destroy
