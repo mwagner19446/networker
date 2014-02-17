@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217184454) do
+ActiveRecord::Schema.define(version: 20140217221256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 20140217184454) do
   end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "title"
-    t.text   "photo_url",       default: "/assets/default_photo.jpg"
-    t.text   "email"
-    t.string "password_digest"
+    t.string  "name"
+    t.string  "title"
+    t.text    "photo_url",       default: "/assets/default_photo.jpg"
+    t.text    "email"
+    t.string  "password_digest"
+    t.boolean "superuser"
   end
 
 end

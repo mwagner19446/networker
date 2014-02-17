@@ -16,7 +16,8 @@
 </div>
 
 <br />
-<div class="sign_in">
-<%= link_to("Sign Up and Begin Your Journey", new_user_path) if session[:user_id].nil? %>
-<div>
-
+<% if session[:user_id].nil? %>
+  <div class="sign_in">
+  <%= link_to("Sign Up and Begin Your Journey", new_user_path)  %>
+  <div>
+<%end%>

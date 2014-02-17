@@ -10,7 +10,9 @@
 <header>
   <%= link_to "Home", root_path %> 
   <%= link_to("Dashboard", user_path(session[:user_id])) unless session[:user_id].nil? %> 
+  <%= link_to("User List", users_path) if session[:superuser]==true %>
   <%= link_to "About Us", about_path %> 
+
 
   <div id="sign_in">
   <%= link_to("Login", sessions_path )if session[:user_id].nil? %>
