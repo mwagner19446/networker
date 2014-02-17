@@ -1,8 +1,6 @@
-<%binding.pry%>
 
 <% if !@user.nil? && @user.id.nil? %>
   <div id="errors">
-    <h3>Errors!</h3>
     <ul>
       <% @user.errors.messages.each do |field,error| %>
         <li><em><%= "#{field.capitalize} #{error.first}!" %></em></li>
@@ -10,8 +8,6 @@
     </ul>
   </div>
 <% end %>
-
-<%binding.pry%>
 
 <%=  form_for @user do |f| %>
   <%= f.label :name%>:

@@ -22,7 +22,7 @@ class ConnectionsController < ApplicationController
   def update
     @connection= Connection.find_by(id: params[:id])
     @connection.update(connection_params)
-    redirect_to(:back)
+    redirect_to("/users/#{@connection.user_id}")
   end 
 
   def destroy

@@ -22,8 +22,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find_by(id: params[:id])
     @task.update(task_params)
-    redirect_to(:back)
-
+    redirect_to("/users/#{@task.user_id}" )
   end 
 
   def destroy
