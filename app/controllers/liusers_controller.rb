@@ -9,12 +9,8 @@ class LiusersController < ApplicationController
     unless params[:code].nil?
       session[:code]=params[:code]
     end 
-  
-    @liadds = Liuser.where(id: session[:connections])
     @liusers = Liuser.all
-    render(:list)
   end 
-
 
   private
 
