@@ -12,8 +12,44 @@
  *= require_tree .
  */
 #title {
+  margin-top: 5%;
+  margin-right: 30%;
+  margin-left: 30%;
   text-align: center;
+  background-image: -webkit-linear-gradient(top, #A9D0F5 0%,#069 100%);  
+  background-color: #069;
+  border-color: #069;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 44px;
+  color: white;
+  font-family: sans-serif;
+  width: 40%;
+  border-radius: 5px;
 }
+
+.sign_in {
+  clear: both;
+  display: block;
+  margin-top: 5%;
+  margin-right: 35%;
+  margin-left: 35%;
+  text-align: center;
+  background-color: red;
+  font-size: 21px;
+  width: 30%;
+  border-radius: 5px;
+  height: 100px; 
+   
+}
+
+.sign_in1 {
+  color: white;
+  font-family: sans-serif;
+  text-decoration: none;
+
+}
+
 
 #homepage {
   margin: 0 auto;
@@ -23,27 +59,41 @@
   float: right;
 }
 
+.global-header {
+box-shadow: 0 0 10px #333;
+font-size: 13px;
+line-height: 17px;
+color: #333;
+/*background-color: #3f3f3f;*/
+background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+font-weight: normal;
+z-index: 10001;
+height: 42px;
+/*position: fixed;*/
+top: 0;
+width: 95%;
+}
+
+.links {
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #D7D7D7;
+  text-decoration:none;
+
+  }
+
+
 .box { 
   display: inline-block;
   float: left;
   margin: 30px;
   border-style: solid;
+  border-radius: 5px;
+  border-color: #069;
   width: 300px;
   height: 200px;
 }
 
-.sign_in {
-  clear: both;
-  display: block;
-  width: 300px;
-  height: 100px;
-  background-color: red; 
-  border-style: solid;
-  text-align: center; 
-  line-height: 100px;
-  margin: 0 auto;
-  
-}
 
 .display {
   float: left;

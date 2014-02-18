@@ -8,16 +8,20 @@
 </head>
 <body>
 <header>
-  <%= link_to "Home", root_path %> 
-  <%= link_to("Dashboard", user_path(session[:user_id])) unless session[:user_id].nil? %> 
-  <%= link_to("User List", users_path) if session[:superuser]==true %>
-  <%= link_to "About Us", about_path %> 
+  <div class="global-header">
+      <%= link_to "Home", root_path, :class => "links" %> 
+      <%= link_to("Dashboard", user_path(session[:user_id]), :class => "links") unless session[:user_id].nil? %> 
+      
+      <%= link_to("User List", users_path, :class => "links") if session[:superuser]==true %>
+      <%= link_to "About Us", about_path, :class => "links"  %> 
 
 
-  <div id="sign_in">
-  <%= link_to("Login", sessions_path )if session[:user_id].nil? %>
-  <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}", sessions_path, method: "delete") unless session[:user_id].nil? %>
-  <%= session[:superuser_name] unless session[:superuser_name].nil? %>
+      <div id="sign_in">
+      <%= link_to("Login", sessions_path, :class => "links" )if session[:user_id].nil? %>
+      <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}", sessions_path, :class => "links", method: "delete") unless session[:user_id].nil? %>
+      <%= session[:superuser_name] unless session[:superuser_name].nil? %>
+      </div>
+   
   </div>
 
 </header>
