@@ -1,0 +1,17 @@
+<%unless @group_meetup.nil? %>
+  <table >
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    <% @group_meetup.each do |meetup| %>
+    <tr>
+      <td></td>
+      <td><img src="<%=meetup["photo_url"]%>" height="80" width="80" ></td>
+      <td><%=meetup["who"]%></td>
+      <td><%=meetup["description"]%></td>
+    </tr> 
+    <% end %>
+  </table>
+<%end%>

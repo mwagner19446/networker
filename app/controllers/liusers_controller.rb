@@ -47,6 +47,7 @@ class LiusersController < ApplicationController
   #   path = "/v1/people/~/connections?format=json"
   #   @response = JSON(access_token.get(path).body)
   #   @response = @response["values"]
+  #   binding.pry
   # end 
 
 
@@ -65,6 +66,7 @@ class LiusersController < ApplicationController
   #   path = "/v1/people/~/connections?format=json"
   #   @response = JSON(access_token.get(path).body)
   #   @response = @response["values"]
+  #   binding.pry
   # end 
 
    
