@@ -14,8 +14,7 @@
 
 <%=link_to "Search Meetup Groups", user_groups_path(@user.id) %>
 
-<div class="action"><a href="/users/<%= @user.id %>/upcomingmeetup">Search Upcoming Meetups</a>
-</div>
+<%=link_to "Search Meetup Events", user_events_path(@user.id) %>
 
 
 <div class="separator"></div>
