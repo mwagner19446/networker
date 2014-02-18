@@ -9,8 +9,17 @@ class LiusersController < ApplicationController
   end   
 
   def list
+  if session[:connections].nil?
+    session[:connections] = []
+  end 
+  @liadds = Liuser.where(id: session[:connections])
   @liusers = Liuser.all
   render(:list)
+  end 
+
+  def connections
+    session[:connections] << params[:user] 
+    redirect_to(:back)
   end 
 
   private

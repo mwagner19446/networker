@@ -25,6 +25,9 @@ class SessionsController < ApplicationController
     redirect_to(user_path(@user))
   end 
 
+  def update
+    redirect_to
+  end 
 
   def destroy
     session[:user_id] = nil
