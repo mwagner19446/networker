@@ -6,10 +6,6 @@ class LiusersController < ApplicationController
   end   
 
   def list
-    if session[:connections].nil?
-      session[:connections] = []
-    end 
-
     unless params[:code].nil?
       session[:code]=params[:code]
     end 
