@@ -1,10 +1,18 @@
 <h1>Linked In Connections:</h1>
 
 
-<%= link_to "Authorize Linked In", liusers_path, method: "post"%> <br \>
+<%if params[:code].nil? %>
+ <%consumer_key = LI_CONSUMER_KEY%>
+ <%consumer_secret = LI_CONSUMER_SECRET %>
+ <a href="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=<%=consumer_key%>&state=DCEEFWF45453sdffef424&redirect_uri=http://localhost:3000/users/<%=session[:user_id]%>/lilist">Sign in through Linked In</a>
+<%else%>
+  <%= link_to "Authorize Linked In", liusers_path, method: "post"%> <br \>
+
+<%end%>
 
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Name</th>
   </tr>
@@ -13,6 +21,7 @@
     <td><img src="<%=add.picture_url%>"></td>
     <td><%=add.first_name%></td>
     <td><%=add.last_name%></td>
+    <td></td>
   </tr> 
   <% end %>  
 </table>
