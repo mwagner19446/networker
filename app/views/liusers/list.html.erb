@@ -10,22 +10,9 @@
 
 <%end%>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Name</th>
-    <th>Name</th>
-  </tr>
-  <% @liadds.each do |add| %>  
-  <tr>
-    <td><img src="<%=add.picture_url%>"></td>
-    <td><%=add.first_name%></td>
-    <td><%=add.last_name%></td>
-    <td></td>
-  </tr> 
-  <% end %>  
-</table>
-
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 
 <table >
@@ -43,7 +30,6 @@
     <td><img src="<%=liuser.picture_url%>"></td>
     <td><%=liuser.first_name+" "+liuser.last_name%></td>
     <td><%=liuser.headline%></td>
-    <td><%=link_to "TEST", liusers_connections_path(:user => liuser), method: "post"%></td>
     <td><%= link_to "Connector", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Connector" ), method: "post" %></td>
     <td><%= link_to "Mentor", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Mentor" ), method: "post" %></td>
     <td><%= link_to "Peer", user_connections_path(params[:id], :name=>(liuser.first_name+" "+liuser.last_name), :picture_url=>liuser.picture_url, :c_type=>"Peer" ), method: "post" %></td>
