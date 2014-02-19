@@ -1,21 +1,40 @@
-<h1>Upcoming Meetups</h1>
+<h1>Upcoming Events</h1>
+
+<%=form_tag "search" do %>
+  <%= label_tag :zipcode %>
+  <%= text_field_tag :zipcode %>
+  <%= label_tag :topic %>
+  <%= text_field_tag :topic %>
+  <%=submit_tag "Search" %>
+<%end%>
 
 <%unless @event_meetup.nil? %>
   <table >
     <tr>
-      <th>GroupName</th>
-      <th>Date</th>
+      <th>What</th>
+      <th>Hosted by:</th>
+      <th>Where</th>
+      <th>When</th>
       <th><th>
       <th><th>
       <th><th>
     </tr>
     <% @event_meetup.each do |meetup| %>
     <tr>
+      <td><%=link_to meetup["name"], meetup["event_url"] %></td>
       <td><%=meetup["group"]["name"]%></td>
+      <td>
+        <%if meetup["venue"].blank? %>
+        <%= "Must Join Via Meetup to See Info"%>
+        <%else%>
+        <%= meetup["venue"]["name"]+" ("+meetup["venue"]["address_1"]+")"%>
+        <%end%>
+      </td>
       <td><%=Time.at(meetup["time"]/1000).strftime("%A %Y-%m-%d %I:%M %p")%></td>
-      <td><%= link_to "Add Discovery", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Discovery"), method: "post"%></td>
-      <td><%= link_to "Add Radar", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Radar" ), method: "post"%></td>
-      <td><%= link_to "Add Service", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Service" ), method: "post"%></td>
+      
+      <td><%= link_to "Discovery", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Discovery"), method: "post"%></td>
+      <td><%= link_to "Radar", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Radar" ), method: "post"%></td>
+      <td><%= link_to "Service", user_tasks_path(params[:user_id], :title=>("Meetup: "+meetup["group"]["name"]), :due_date=>Time.at(meetup["time"]/1000).strftime("%Y-%m-%d %I:%M %p"), :t_type=>"Service" ), method: "post"%></td>
     </tr> 
     <% end %>
   </table>
