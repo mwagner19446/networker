@@ -11,7 +11,15 @@
   <% @users.each do |user| %>
   <tr>
     <td><%=link_to image_tag("delete.png",size: "20x20"), user_path(user.id), method: "delete" %></td>
-    <td><img src="<%=user.photo_url%>" width="80" height="80"></td> 
+
+
+    <td>
+      <%if user.photo_url ==""%>
+       <%= image_tag("default_photo.jpg", size: "80x80") %>
+      <%else%>
+       <img src="<%=user.photo_url%>" width="80" height="80">
+      <%end%>
+    </td> 
     <td><%=link_to user.name, user_path(user.id) %></td>
     <td><%=link_to image_tag("edit.png"), edit_user_path(user.id) %></td>
     <td><%=user.title%></td>

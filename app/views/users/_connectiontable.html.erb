@@ -9,7 +9,13 @@
   <% @connections.each do |connection| %>
   <tr>
     <td><%=link_to image_tag("delete.png",size: "21x21"), user_connection_path(params[:id],connection.id), method: "delete" %></td>
-    <td><img src="<%=connection.photo_url%>" height="80" width="80"></td>
+    <td>
+    <%if connection.photo_url ==""%>
+    <%= image_tag("default_photo.jpg", size: "80x80") %>
+    <%else%>
+    <img src="<%=connection.photo_url%>" height="80" width="80">
+    <%end%>
+    </td>
     <td><%=connection.c_type%></td>
     <td><%=link_to connection.name, edit_user_connection_path(params[:id],connection.id ) %></td>
     <td><%= link_to image_tag("coffee.png", size:"21x21"), user_tasks_path(params[:id], :title=>("Catch Up: "+connection.name), :due_date=>(Time.now+14.days) ), method: "post" %></td>
