@@ -22,7 +22,7 @@ NetworkerApp::Application.routes.draw do
   post "/liusers", to: "liusers#create"
 
   get "/users/:id/lilist", to: "liusers#list"
-  
+
   get "/sessions", to: "sessions#new"
   post "/sessions", to: "sessions#create"
   post "/sessions/superuser", to: "sessions#superuser"

@@ -2,6 +2,9 @@ class LiusersController < ApplicationController
   
   before_action(:get_linkedin, {only: [:list] })
 
+  # before_action(:user_linkedin, {only: [:list] })
+
+
   def create
   end   
 
@@ -9,7 +12,7 @@ class LiusersController < ApplicationController
     unless params[:code].nil?
       session[:code]=params[:code]
     end 
-    @liusers = Liuser.all
+    # @response = Liuser.all
   end 
 
   private
@@ -17,13 +20,10 @@ class LiusersController < ApplicationController
   # def get_linkedin
   #   access_token = Token.find_by(user_id: params[:user_id])
   #   path = "/v1/people/~/connections?format=json"
-  #   binding.pry
   #   @response = JSON(access_token.get(path).body)
   #   @response = @response["values"]
 
   # end
-
-
 
   #   def get_linkedin
   #   consumer_key = LI_CONSUMER_KEY
@@ -39,8 +39,19 @@ class LiusersController < ApplicationController
   #   path = "/v1/people/~/connections?format=json"
   #   @response = JSON(access_token.get(path).body)
   #   @response = @response["values"]
-  #   binding.pry
   # end 
+
+  def get_token
+    @token = Token.find_by(user_id: params[:user_id])
+    @token = @token.access_token
+  end 
+
+  def user_linkedin
+    get_token
+    @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
+    @response = @users["values"]
+    render(:list)
+  end 
 
 
   ### Previously used with no authentication. 
