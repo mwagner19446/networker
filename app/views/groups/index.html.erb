@@ -1,23 +1,5 @@
-<h1>Upcoming Meetups</h1>
+<h1>Meetup Groups</h1> 
 Find Meetups Groups that match your interest
 
-<%= render "form" %>
 
-<%unless @group_meetup.nil? %>
-  <table >
-    <tr>
-      <th>Status</th>
-      <th>GroupName</th>
-      <th>Date</th>
-      <th><th>
-    </tr>
-    <% @group_meetup.each do |meetup| %>
-    <tr>
-      <td><%=meetup["status"]%></td>
-      <td><%=meetup["group"]["name"]%></td>
-      <td><%=Time.at(meetup["time"]/1000)%></td>
-      <td><%= link_to "Add", user_tasks_path(params[:id], :title=>("Meetup: "+meetup["group"]["name"]) ), method: "post" %></td>
-    </tr> 
-    <%end%>
-  </table>
-<%end%>
+<%= render "form" %>
