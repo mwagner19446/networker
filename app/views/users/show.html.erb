@@ -19,7 +19,7 @@
 <br \>
 
 
-<%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
+<div class="action"><%=link_to image_tag("meetup.png"), user_events_path(@user.id) %></div>
 
 
 <div class="separator"></div>
@@ -32,5 +32,5 @@
 <br \>
 <div class ="action"><a href="/users/<%= @user.id %>/lilist"><%=image_tag("LinkedIn.png", size: "30x30")%></a></div>
 
-<%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %>
+<div class ="action"><%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %></div>
 

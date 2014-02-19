@@ -1,11 +1,11 @@
 Manually Add New Connections
 <%= form_for [@user, @connection] do |f| %>
-  <p>
+  <br \>
   <%= f.label :c_type, ('Connection Type') %>
   <%= f.select :c_type, options_for_select(["Connector","Mentor","Peer"]) %> 
-  <p>
+  <br \>
   <%= f.label :name %>
   <%= f.text_field :name %> 
-  <p>
+  <br \>
   <%= f.submit %> 
 <% end %>

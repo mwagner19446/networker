@@ -1,18 +1,16 @@
 Manually Create New Tasks:
 <%= form_for [@user, @task] do |f| %>
-  <p>
   <%= f.label :t_type, ('Task Type') %>
   <%= f.select :t_type, options_for_select(["Discovery","Radar","Service"])%>
-  <p>
+  <br \>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <p>
+  <br \>
   <%= f.label :notes %>
   <%= f.text_field :notes %>
-  <p>
+  <br \>
   <%= f.label :due_date %>
   <%= f.datetime_field :due_date %>
-
-  <p>
+  <br \>
   <%= f.submit %>
 <% end %>
