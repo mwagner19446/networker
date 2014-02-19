@@ -57,3 +57,5 @@ gem 'oauth'
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'httparty'
+
+gem 'rails_12factor'
