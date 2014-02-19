@@ -2,15 +2,18 @@ class TasksController < ApplicationController
 
   def create
     if params["task"].nil? ##From the Meetup Page
-      Task.create(title: params["title"],
+      @task = Task.create(title: params["title"],
         user_id: params[:user_id],
         due_date: params[:due_date],
         t_type: params[:t_type])
     else ##From the Dashboard Form Field
-      task = Task.create(task_params)
-      task.user_id = params[:user_id]
-      task.save
+      @task = Task.create(task_params)
+      @task.user_id = params[:user_id]
+      @task.save
     end 
+
+    flash[:notice] = "#{@task.title} has been added as a #{@task.t_type} Task."
+
     redirect_to(:back)
   end 
 
