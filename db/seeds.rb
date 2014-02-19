@@ -24,7 +24,7 @@ kg = Liuser.create(linkedin_id: "Yp9Gu1eWXl", first_name: "Kean", last_name: "Ga
 
 Task.create(title: "Meetup: Big Data", t_type: "Discovery", notes: "Pass out cards", due_date: Time.now+10.days, user: mw)
 Task.create(title: "Meetup: Lean Startup", t_type: "Discovery", notes: "Eat Pizza", due_date: Time.now+11.days, user: mw)
-Task.create(title: "Lunch: Jeff", t_type: "Radar", notes: "Ask about jobs in Analytics", due_date: Time.now+12.days, user: mw)
+Task.create(title: "Catch Up: Jeff", t_type: "Radar", notes: "Ask about jobs in Analytics", due_date: Time.now+12.days, user: mw)
 Task.create(title: "Pro Bono:  Wordpress for Animal Shelter", t_type: "Service", notes: " ", due_date: Time.now+14.days, user: sj)
 
 Connection.create(name: "Jason A", c_type: "Connector", user: mw, liuser: ja)
