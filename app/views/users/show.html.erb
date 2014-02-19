@@ -18,9 +18,8 @@
 <div class="action"><%= render "taskform" %></div>
 <br \>
 
-<%=link_to "Search Meetup Groups", user_groups_path(@user.id) %>
 
-<%=link_to "Search Meetup Events", user_events_path(@user.id) %>
+<%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
 
 
 <div class="separator"></div>
@@ -31,4 +30,7 @@
 <div class="action"><%= render "connectionform" %></div>
 
 <br \>
-<div class ="action"><a href="/users/<%= @user.id %>/lilist">Linked In List</a></div>
+<div class ="action"><a href="/users/<%= @user.id %>/lilist"><%=image_tag("LinkedIn.png", size: "30x30")%></a></div>
+
+<%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %>
+

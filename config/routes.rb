@@ -18,10 +18,9 @@ NetworkerApp::Application.routes.draw do
 
   root "welcome#index"
   get "about", to: "welcome#about"
-
-  post "/liusers", to: "liusers#create"
-
+  
   get "/users/:id/lilist", to: "liusers#list"
+  post "/liusers", to: "liusers#create"
 
   get "/sessions", to: "sessions#new"
   post "/sessions", to: "sessions#create"
