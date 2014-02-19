@@ -19,6 +19,7 @@
   <tr>
     <th></th>
     <th>Name</th>
+    <th>Location<th>
     <th>Headline</th>
     <th><th>
     <th><th>
@@ -45,7 +46,22 @@
   <% @response.each do |liuser| %>
     <tr>
       <td><img src="<%=liuser["pictureUrl"]%>"></td>
-      <td><%=liuser["firstName"]+" "+liuser["lastName"]%></td>
+      <td>
+        <%if liuser["siteStandardProfileRequest"].blank?%>
+          <%=liuser["firstName"]+" "+liuser["lastName"]%>
+        <%else%>
+          <%=link_to liuser["firstName"]+" "+liuser["lastName"], liuser["siteStandardProfileRequest"]["url"]%>
+
+        <%end%>
+      </td>
+      <td>
+        <%if liuser["location"].blank?%>
+          <%="No Location Provided"%>
+        <%else%>
+          <%=liuser["location"]["name"]%>
+
+        <%end%>
+      </td>
       <td><%=liuser["headline"]%></td>
       <td><%= link_to "Connector", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Connector" ), method: "post" %></td>
       <td><%= link_to "Mentor", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Mentor" ), method: "post" %></td>
