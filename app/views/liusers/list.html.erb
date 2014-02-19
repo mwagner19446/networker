@@ -25,6 +25,9 @@
     <th><th>
     <th><th>
   </tr>
+
+<!-- ###PostGresSQL
+
   <% @liusers.each do |liuser| %>
   <tr>
     <td><img src="<%=liuser.picture_url%>"></td>
@@ -36,3 +39,18 @@
   </tr> 
   <% end %>
 </table>
+ -->
+<!-- ###Linked IN API -->
+
+  <% @response.each do |liuser| %>
+    <tr>
+      <td><img src="<%=liuser["pictureUrl"]%>"></td>
+      <td><%=liuser["firstName"]+" "+liuser["lastName"]%></td>
+      <td><%=liuser["headline"]%></td>
+      <td><%= link_to "Connector", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Connector" ), method: "post" %></td>
+      <td><%= link_to "Mentor", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Mentor" ), method: "post" %></td>
+      <td><%= link_to "Peer", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Peer" ), method: "post" %></td>
+    </tr> 
+    <% end %>
+  </table>
+
