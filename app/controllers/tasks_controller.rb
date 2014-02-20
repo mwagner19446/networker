@@ -8,7 +8,6 @@ class TasksController < ApplicationController
       @task = Task.create(task_params)
       @task.user_id = params[:user_id]
       @task.save
-    binding.pry
     flash[:notice] = "#{@task.title} has been added as a #{@task.t_type} Task."
     redirect_to(:back)
   end 
