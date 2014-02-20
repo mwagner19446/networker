@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+  include ApplicationHelper
+
+  before_action(:find_task, {only: [:edit, :edit, :update] })
+
 
   def create
     if params["task"].nil? ##From the Meetup Page
@@ -18,18 +22,14 @@ class TasksController < ApplicationController
   end 
 
   def edit
-    @user = User.find_by(id: params[:user_id]) 
-    @task = Task.find_by(id: params[:id])
   end 
 
   def update
-    @task = Task.find_by(id: params[:id])
     @task.update(task_params)
     redirect_to("/users/#{@task.user_id}" )
   end 
 
   def destroy
-    @task = Task.find_by(id: params[:id])
     @task.destroy
     redirect_to(:back)
   end 
@@ -37,6 +37,10 @@ class TasksController < ApplicationController
   private 
   def task_params
     params.require(:task).permit(:name, :t_type, :notes)
+  end 
+
+  def find_task
+    @task = Task.find_by(id: params[:id])
   end 
 
 end 

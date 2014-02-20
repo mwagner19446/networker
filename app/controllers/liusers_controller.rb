@@ -4,7 +4,6 @@ class LiusersController < ApplicationController
 
   # before_action(:user_linkedin, {only: [:list] })
 
-
   def create
   end   
 

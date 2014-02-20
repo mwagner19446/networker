@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def new
   end 
   
@@ -26,7 +27,6 @@ class SessionsController < ApplicationController
   end 
 
   def update
-    redirect_to
   end 
 
   def destroy

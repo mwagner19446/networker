@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  include FinduserHelper
+  
+  before_action(:find_user, {only: [:edit, :update, :show] })
 
   def new 
     @user = User.new
-
     render(:new)
   end 
 
@@ -22,17 +24,14 @@ class UsersController < ApplicationController
   end 
 
   def edit
-    @user = User.find_by(id: params[:id])
   end 
 
   def update
-    @user = User.find_by(id: params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end 
 
   def show
-    @user = User.find_by(id: params[:id])
     @tasks = Task.where(user_id: params[:id])
     @tasks = @tasks.order(:due_date)
     @connections = Connection.where(user_id: params[:id])
@@ -41,10 +40,7 @@ class UsersController < ApplicationController
     render(:show)
   end 
 
-  def user_params
-    params.require(:user).permit(:name, :title, :email, :password, :password_confirmation)
-  end 
-
+  
    def authenticate
     unless logged_in?
       redirect_to login_path
@@ -56,5 +52,11 @@ class UsersController < ApplicationController
       redirect_to login_path
     end
   end
+
+private
+  def user_params
+    params.require(:user).permit(:name, :title, :email, :password, :password_confirmation)
+  end 
+ 
 
 end 
