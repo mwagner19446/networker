@@ -46,7 +46,13 @@
         <%end%>
       </td>
       <td><%=liuser["headline"]%></td>
-      <td><%= link_to "Connector", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Connector" ), method: "post" %></td>
+      <td><%= link_to "Connector", user_connections_path(params[:id], 
+            :connection=>{
+              :name=>(liuser["firstName"]+" "+liuser["lastName"]), 
+              :picture_url=>liuser["pictureUrl"], 
+              :c_type=>"Connector"
+            }
+       ), method: "post" %></td>
       <td><%= link_to "Mentor", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Mentor" ), method: "post" %></td>
       <td><%= link_to "Peer", user_connections_path(params[:id], :name=>(liuser["firstName"]+" "+liuser["lastName"]), :picture_url=>liuser["pictureUrl"], :c_type=>"Peer" ), method: "post" %></td>
     </tr> 
