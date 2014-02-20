@@ -17,7 +17,6 @@ class TasksController < ApplicationController
     end 
 
     flash[:notice] = "#{@task.title} has been added as a #{@task.t_type} Task."
-
     redirect_to(:back)
   end 
 
