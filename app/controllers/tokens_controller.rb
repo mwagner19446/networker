@@ -19,7 +19,6 @@ class TokensController < ApplicationController
     consumer_key = LI_CONSUMER_KEY
     consumer_secret = LI_CONSUMER_SECRET
     @token = HTTParty.get("https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code=#{session[:code]}&redirect_uri=http://localhost:3000/users/#{session[:user_id]}/lilist&client_id=#{consumer_key}&client_secret=#{consumer_secret}")
-    binding.pry
   end
 
 end 

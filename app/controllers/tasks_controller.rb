@@ -1,8 +1,6 @@
 class TasksController < ApplicationController
   include ApplicationHelper
-
-  before_action(:find_task, {only: [:edit, :edit, :update] })
-
+  before_action(:find_task, {only: [:edit, :destroy, :update] })
 
   def create
       @task = Task.create(task_params)
