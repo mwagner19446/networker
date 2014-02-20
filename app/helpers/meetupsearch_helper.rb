@@ -11,9 +11,9 @@ module MeetupsearchHelper
       url = "http://api.meetup.com/groups.json/?zip=#{zipcode}&text=#{topic}&order=members&key=#{meetup_api}"
     end 
 
-      
-    @event_meetup = HTTParty.get(url)
-    @event_meetup = @event_meetup["results"]
+  
+    @meetup = HTTParty.get(url)
+    @meetup = @meetup["results"]
   end
   
 end 

@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end 
 
   def search
-   search_by_type("group")
+    search_by_type("group")
   end
 
 end 
