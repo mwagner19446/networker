@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include FinduserHelper
   
-  before_action(:find_user, {only: [:edit, :update, :show] })
+  before_action(:find_user, {only: [:edit, :update, :show, :destroy] })
 
   def new 
     @user = User.new
@@ -29,6 +29,11 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     redirect_to user_path(@user.id)
+  end 
+
+  def destroy
+    @user.destroy
+    redirect_to(:back)
   end 
 
   def show
