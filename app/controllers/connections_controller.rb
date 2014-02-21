@@ -27,7 +27,7 @@ class ConnectionsController < ApplicationController
 
   private
   def connection_params
-    params.require(:connection).permit(:name, :c_type)
+    params.require(:connection).permit(:name, :c_type, :photo_url)
   end 
 
   def find_connection 

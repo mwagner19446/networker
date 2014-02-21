@@ -12,11 +12,11 @@ NetworkerApp::Application.routes.draw do
 
     resources :liusers, only: [:index] do 
       post 'search', :on => :collection
+      get 'search', :on => :collection
     end
 
 
-    resources :tasks, :tokens 
-    resources :connections 
+    resources :tasks, :tokens, :connections 
   end 
 
   root "welcome#index"
