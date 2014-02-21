@@ -1,17 +1,5 @@
 <h1><%= @user.name %></h1>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name%>:
-  <%= f.text_field :name%> <br \>
+<%=render "userform" %>
 
-  <%= f.label :title%>:
-  <%= f.text_field :title%> <br \>
 
-  <%= f.label :email%>:
-  <%= f.text_field :email%> <br \>
-
-  <%= f.label :password%>:
-  <%= f.text_field :password%> <br \>
-
-  <%= f.submit "Update User"%> <br \>
- <% end %> 
