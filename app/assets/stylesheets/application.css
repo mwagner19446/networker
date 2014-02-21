@@ -15,17 +15,23 @@
   margin-top: 5%;
   margin-right: 30%;
   margin-left: 30%;
-  text-align: center;
-  background-image: -webkit-linear-gradient(top, #A9D0F5 0%,#069 100%);  
+  background-position: 0px -50px;
+  background: -webkit-linear-gradient(top, #A9D0F5 0%,#069 100%);  
   background-color: #069;
   border-color: #069;
   border-style: solid;
   border-width: 1px;
-  font-size: 44px;
-  color: white;
-  font-family: sans-serif;
-  width: 40%;
   border-radius: 5px;
+  text-align: center;
+}
+
+#title h1 {
+  font-family: sans-serif;
+  color: white;
+}
+
+#homepage {
+  margin: 0 auto;
 }
 
 .sign_in {
@@ -63,28 +69,21 @@
 
 }
 
-
-#homepage {
-  margin: 0 auto;
-}
-
 #sign_in {
   float: right;
 }
 
 .global-header {
-box-shadow: 0 0 10px #333;
-font-size: 13px;
-line-height: 17px;
-color: #333;
-/*background-color: #3f3f3f;*/
-background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
-font-weight: normal;
-z-index: 10001;
-height: 42px;
-/*position: fixed;*/
-top: 0;
-width: 95%;
+  box-shadow: 0 0 10px #333;
+  font-size: 13px;
+  line-height: 17px;
+  color: #333;
+  background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  font-weight: normal;
+  z-index: 10001;
+  height: 42px;
+  top: 0;
+  width: 95%;
 }
 
 .links {
@@ -92,12 +91,18 @@ width: 95%;
   padding-right: 4px;
   color: #D7D7D7;
   text-decoration:none;
-
   }
 
+.boxes {
+  text-align: center;
+}
+
+.boxes li {
+  display: inline-block;
+  text-align: center;
+}
 
 .box { 
-  display: inline-block;
   float: left;
   margin: 30px;
   border-style: solid;
