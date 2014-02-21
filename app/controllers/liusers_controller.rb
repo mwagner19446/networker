@@ -1,17 +1,26 @@
 class LiusersController < ApplicationController
   
-  before_action(:get_linkedin, {only: [:list] })
+  # before_action(:get_linkedin, {only: [:list] })
 
   # before_action(:user_linkedin, {only: [:list] })
+
+  before_action(:get_token, {only: [:list] })
+
+
+  def index
+  end 
 
   def create
   end   
 
   def list
-    unless params[:code].nil?
-      session[:code]=params[:code]
-    end 
     # @response = Liuser.all
+  end 
+
+  def search
+    @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
+    @response = @users["values"]
+    render(:search)
   end 
 
   private
