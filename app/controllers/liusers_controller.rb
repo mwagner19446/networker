@@ -18,8 +18,9 @@ class LiusersController < ApplicationController
   end 
 
   def search
+    get_token
     @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
-    @response = @users["values"]
+    @response = @response["values"]
     render(:search)
   end 
 
@@ -50,7 +51,9 @@ class LiusersController < ApplicationController
   # end 
 
   def get_token
-    @token = Token.find_by(user_id: params[:user_id])
+    @token = Token.where(user_id: params[:user_id])
+    @token = @token.where.not(expires_in: nil)
+    @token = @token.last
     @token = @token.access_token
   end 
 
