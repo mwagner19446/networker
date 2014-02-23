@@ -19,7 +19,6 @@ class LiusersController < ApplicationController
 
   def get_token
     @token = Token.where("user_id = ? AND expires_in > ?",  params[:user_id], Time.now)
-    # @token = @token.where.not(expires_in: nil)
     @token = @token.last
     if !@token.nil?
       @token = @token.access_token
@@ -27,11 +26,18 @@ class LiusersController < ApplicationController
   end 
 
   def add_token
+    binding.pry
     if params["code"]
+      consumer_key = LI_CONSUMER_KEY
+      consumer_secret = LI_CONSUMER_SECRET
+      @token = HTTParty.get("https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code=#{params["code"]}&redirect_uri=http://localhost:3000/users/#{session["user_id"]}/liusers&client_id=#{consumer_key}&client_secret=#{consumer_secret}" )
+      
+      binding.pry
+
       Token.create(
       access_date: Time.now,
-      expires_in: Time.now + 10.days,
-      access_token: params["code"],
+      expires_in: Time.now + @token["expires_in"],
+      access_token: @token["access_token"],
       user_id: params[:user_id]
       )
     end 

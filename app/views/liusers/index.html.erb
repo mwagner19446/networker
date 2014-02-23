@@ -1,10 +1,14 @@
 <h1>Linked In Connections:</h1>
 
+
 <%if @token.nil? && params["code"].nil? %>
+
   <%consumer_key = LI_CONSUMER_KEY%>
   <%consumer_secret = LI_CONSUMER_SECRET %>
   <a href="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=<%=consumer_key%>&state=DCEEFWF45453sdffef424&redirect_uri=http://localhost:3000/users/<%=session[:user_id]%>/liusers">Sign in through Linked In</a>
 <%elsif @token%>
+  <%consumer_key = LI_CONSUMER_KEY%>
+  <%consumer_secret = LI_CONSUMER_SECRET %>
   <%binding.pry%>
   <%=link_to "Fetch Linked In Contacts", search_user_liusers_path(params[:user_id]), method:"post" %>
 <%end%>
