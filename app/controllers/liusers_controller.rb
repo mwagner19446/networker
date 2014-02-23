@@ -23,11 +23,5 @@ class LiusersController < ApplicationController
     @token = @token.last
     @token = @token.access_token
   end 
-
-  def user_linkedin
-    get_token
-    @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
-    @response = @users["values"]
-    render(:list)
-  end 
+ 
 end 
