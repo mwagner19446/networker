@@ -1,6 +1,6 @@
 class LiusersController < ApplicationController
   before_action(:retrieve_token, {only: [:index, :search] })
-  before_action(:get_token, {only: [:index] })
+  before_action(:add_token, {only: [:index] })
   
   def index
   end 
@@ -21,13 +21,15 @@ class LiusersController < ApplicationController
       consumer_key = LI_CONSUMER_KEY
       consumer_secret = LI_CONSUMER_SECRET
       @token = HTTParty.get("https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code=#{params["code"]}&redirect_uri=http://localhost:3000/users/#{session["user_id"]}/liusers&client_id=#{consumer_key}&client_secret=#{consumer_secret}" )
-    end  
+      
+
       Token.create(
       access_date: Time.now,
       expires_in: Time.now + @token["expires_in"],
       access_token: @token["access_token"],
       user_id: params[:user_id]
       )  
+    end
   end 
 
   def retrieve_token
