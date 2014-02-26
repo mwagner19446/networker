@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include FinduserHelper
   
-  before_action(:find_user, {only: [:edit, :update, :show, :destroy] })
+  before_action(:find_user, {only: [:edit, :index ,:update, :show, :destroy] })
 
   def new 
     @user = User.new
@@ -19,8 +19,12 @@ class UsersController < ApplicationController
   end 
 
   def index
-    @users = User.all
-    render(:index)
+    if current_user.superuser == true
+      @users = User.all
+      render(:index)    
+    else 
+      redirect_to user_path(session["user_id"])
+    end
   end 
 
   def edit
@@ -42,7 +46,12 @@ class UsersController < ApplicationController
     @connections = Connection.where(user_id: params[:id])
     @task = Task.new
     @connection = Connection.new
-    render(:show)
+    if current_user.superuser || current_user.id == params[:id].to_i
+      render(:show)
+    else  
+      redirect_to user_path(current_user.id)
+    end 
+  
   end 
 
   

@@ -1,5 +1,5 @@
 <h1> Admin User Page </h1>
-<table>
+<table class="user">
   <tr>
     <th></th>
     <th></th>
@@ -11,8 +11,6 @@
   <% @users.each do |user| %>
   <tr>
     <td><%=link_to image_tag("delete.png",size: "20x20"), user_path(user.id), method: "delete" %></td>
-
-
     <td>
       <%if user.photo_url ==""%>
        <%= image_tag("default_photo.jpg", size: "80x80") %>

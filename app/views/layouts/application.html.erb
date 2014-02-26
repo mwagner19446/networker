@@ -9,6 +9,7 @@
 <body>
 <header>
   <div class="global-header">
+
       <%= link_to "Home", root_path, :class => "links" %> 
       <%= link_to("Dashboard", user_path(session[:user_id]), :class => "links") unless session[:user_id].nil? %> 
       
