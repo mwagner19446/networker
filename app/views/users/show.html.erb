@@ -1,38 +1,61 @@
-<h1>
-  
-  <%if @user.photo_url ==""%>
-    <%= image_tag("default_photo.jpg", size: "80x80") %>
-    <%else%>
-     <img src="<%=@user.photo_url%>" width="80" height="80">
-  <%end%>
+<div id="dash_wrapper">
+  <div class="person-header">
+    <h1>  
+      <%if @user.photo_url ==""%>
+        <%= image_tag("default_photo.jpg", size: "80x80") %>
+        <%else%>
+         <img src="<%=@user.photo_url%>" width="80" height="80">
+      <%end%>
+      <%=@user.name%>
+      <%=link_to image_tag("edit.png"), edit_user_path(@user.id)%>
+    </h1>
+  </div>
+  <div class="workspace">
+    <h2>User Tasks: </h2>
+    <div class="table">
+      <%= render "tasktable" %>
+    </div>
+    <div class="input">
+      <%= render "taskform" %>
+      <div class="partner">
+        Search our Partners: 
+        <%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
+      </div>
+    </div>
+  </div>
+  <div class="workspace">
+    <h2>User Connections: </h2>
+    <div class="table">
+      <%= render "connectiontable" %>
+    </div>
+    <div class="input">
+      <%= render "connectionform" %>
+      <div class="partner">
+        Search our Partners: 
+        <a href="/users/<%= @user.id %>/liusers"><%=image_tag("LinkedIn.png", size: "30x30")%></a>
+        <%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%=@user.name%>
-  <%=link_to image_tag("edit.png"), edit_user_path(@user.id)%>
-
-
-</h1>
 
 
 
-<h2>User Tasks: </h2>
-<div class="display"><%= render "tasktable" %> </div>
-
-<div class="action"><%= render "taskform" %></div>
-<br \>
 
 
-<div class="action"><%=link_to image_tag("meetup.png"), user_events_path(@user.id) %></div>
 
 
-<div class="separator"></div>
 
-<h2>User Connections: </h2>
-<div class="display"><%= render "connectiontable" %></div>
 
-<div class="action"><%= render "connectionform" %></div>
 
-<br \>
-<div class ="action"><a href="/users/<%= @user.id %>/liusers"><%=image_tag("LinkedIn.png", size: "30x30")%></a></div>
 
-<div class ="action"><%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %></div>
+
+
+
+
+
+
+
+
 
