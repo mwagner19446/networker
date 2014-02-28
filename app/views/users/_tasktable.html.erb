@@ -1,10 +1,10 @@
 <table >
   <tr>
-    <th></th>
-    <th>Type</th>
-    <th>Title</th>
-    <th>Notes</th>
-    <th>Due Date</th>
+    <th id="task_delete"></th>
+    <th id="task_type">Type</th>
+    <th id="task_title">Title</th>
+    <th id="task_notes">Notes</th>
+    <th id="task_due">Due Date</th>
   </tr>
   <% @tasks.each do |task| %>
   <tr>
@@ -12,7 +12,7 @@
     <td><%=task.t_type%></td>
     <td><%=link_to task.title, edit_user_task_path(params[:id], task.id)%></td>
     <td><%=task.notes%></td>
-    <td><%=task.due_date.strftime("%Y-%m-%d %I:%M %p")%></td>
+    <td><%=task.due_date.strftime("%Y-%m-%d")%></td>
   </tr> 
   <% end %>
 </table>

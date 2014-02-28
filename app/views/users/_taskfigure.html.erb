@@ -1,0 +1,14 @@
+<% @tasks.each do |task| %>
+  <div id="taskfigure">
+    <div id="taskfigure_pic">
+      
+    </div>
+    <div id="taskfigure_info">
+      <%=link_to task.title, edit_user_task_path(params[:id], task.id)%> <br />
+      <span id="notes"><%=task.notes %> </span>
+    </div>
+    <div id="taskfigure_date">
+      <%=task.due_date.strftime("%m-%d-%Y")%>
+    </div>
+  </div>
+<% end %>

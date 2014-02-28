@@ -1,5 +1,5 @@
 <div id="dash_wrapper">
-  <div class="person-header">
+  <div id="person_header">
     <h1>  
       <%if @user.photo_url ==""%>
         <%= image_tag("default_photo.jpg", size: "80x80") %>
@@ -10,16 +10,72 @@
       <%=link_to image_tag("edit.png"), edit_user_path(@user.id)%>
     </h1>
   </div>
+
+
+
+  <div id="action_panel">
+    <div id="task_panel">
+      <div class="task_table">
+        <h2>User Tasks: </h2>
+        <%= render "taskfigure" %>
+      </div>
+      <div class="hint">
+        <p>HINT:</p> 
+        <p>Network to identity opportunities</p>
+        <p>Create Actionable Tasks for you to reach your goals</p>
+      </div>
+    </div>
+    <div id="connection_panel">
+      <div class="connection_table">
+        <%= render "connectiontiles" %>
+      </div>
+      <div class="hint">
+        <p>HINT:</p> 
+        <p>CONNECTORS will introduce you to other hiring managers.  (Think Former Bosses)</p>
+        <p>MENTORS have formerly done your job and are now doing the job you want.  Look to them for career path guidance.</p>
+        <p>PEERs currently do the same job as you.  Look to them to develop your craft.</p>
+      </div>
+    </div>  
+  </div>
+
+  <div id="nav_panel">
+    <%= render "taskform" %>
+    <div class="partner">
+      Search our Partners: 
+      <%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
+    </div> 
+    <%= render "connectionform" %>
+    <div class="partner">
+      Search our Partners: 
+      <a href="/users/<%= @user.id %>/liusers"><%=image_tag("LinkedIn.png", size: "30x30")%></a>
+      <%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="dash_wrapper">
+  <div class="person-header">
+  </div>
   <div class="workspace">
-    <h2>User Tasks: </h2>
+    
     <div class="table">
-      <%= render "tasktable" %>
+      
     </div>
     <div class="input">
-      <%= render "taskform" %>
-      <div class="partner">
-        Search our Partners: 
-        <%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
+      
       </div>
     </div>
   </div>
@@ -29,16 +85,11 @@
       <%= render "connectiontable" %>
     </div>
     <div class="input">
-      <%= render "connectionform" %>
-      <div class="partner">
-        Search our Partners: 
-        <a href="/users/<%= @user.id %>/liusers"><%=image_tag("LinkedIn.png", size: "30x30")%></a>
-        <%=link_to image_tag("meetup.png"), user_groups_path(@user.id) %>
-      </div>
+      
     </div>
   </div>
 </div>
-
+ -->
 
 
 

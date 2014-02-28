@@ -1,0 +1,25 @@
+<%@connections.each do |connection| %>
+
+<div id="connection_tile">
+  <div id="tile_photo">
+    <%if connection.photo_url ==""%>
+    <%= image_tag("default_photo.jpg", size: "100x100") %>
+    <%else%>
+     <img src="<%=connection.photo_url%>" height="100" width="100">
+    <%end%>
+  </div>
+  <div id="tile_details">
+    <%=connection.name%> <br \>
+    CEO <br \>
+    Last Connection <br \>
+  </div>
+  <div id="tile_coffee">
+    <%= link_to image_tag("coffee.png", size:"21x21")+"Create Task to Catch Up", user_tasks_path(params[:id], :title=>("Catch Up: "+connection.name), :due_date=>(Time.now+14.days) ), method: "post" %>
+
+  </div>
+</div>
+
+
+
+
+<%end%>
