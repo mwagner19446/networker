@@ -18,8 +18,10 @@
 
 
       <div id="sign_in">
-      <%= link_to("Login", sessions_path, :class => "links" )if session[:user_id].nil? %>
+      <%= (render :partial =>"sessions/sign_in", :class=>"links") if session[:user_id].nil?%>
+
       <%= link_to("Logout #{User.find_by(id: session[:user_id]).name}", sessions_path, :class => "links", method: "delete") unless session[:user_id].nil? %>
+
       <%= session[:superuser_name] unless session[:superuser_name].nil? %>
       </div>
    

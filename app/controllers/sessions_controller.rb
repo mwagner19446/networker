@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
       session[:superuser] = user.superuser
       redirect_to(user_path(user)) 
     else
-      @message = "This email and password combination does not exist"
-      render(:new)
+      session[:message] = "This email and password combination does not exist"
+      session[:email] = params[:email]
+      redirect_to(:back)
     end 
   end 
   
@@ -33,6 +34,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     session[:superuser] = nil
     session[:superuser_name] = nil
+    session[:message] = nil
+    session[:email] = nil
     redirect_to("/")
   end 
 end 

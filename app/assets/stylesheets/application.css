@@ -12,6 +12,8 @@
  *= require_tree .
  *= require_dashboard.css 
  *= require_homepage.css 
+ *= l1_nav.css 
+
  
  */
 #title {
