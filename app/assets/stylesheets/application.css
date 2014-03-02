@@ -74,30 +74,6 @@
 
 }
 
-#sign_in {
-  float: right;
-}
-
-.global-header {
-  box-shadow: 0 0 10px #333;
-  font-size: 13px;
-  line-height: 17px;
-  color: #333;
-  background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
-  font-weight: normal;
-  z-index: 10001;
-  height: 42px;
-  top: 0;
-  width: 95%;
-}
-
-.links {
-  padding-left: 4px;
-  padding-right: 4px;
-  color: #D7D7D7;
-  text-decoration:none;
-  }
-
 .boxes {
   text-align: center;
 }

@@ -11,6 +11,14 @@ class LiusersController < ApplicationController
   def search
     @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
     @response = @response["values"]
+
+    @response.each do |liuser|
+      if Liuser.find_by(linkedin_id: liuser["id"]).nil?
+        Liuser.create(linkedin_id: liuser["id"], first_name: liuser["firstName"], last_name: liuser["lastName"], headline: liuser["headline"], industry: liuser["industry"], picture_url: liuser["pictureUrl"] ) 
+        Connection.create(name: (liuser["firstName"]+" "+liuser["lastName"]), c_type: "NONE", user_id: session[:user_id], photo_url: liuser["pictureUrl"] )
+      end 
+    end 
+
     render(:search)
   end 
 
