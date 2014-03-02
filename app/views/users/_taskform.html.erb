@@ -1,16 +1,23 @@
-Manually Create New Tasks:
-<%= form_for [@user, @task] do |f| %>
-  <%= f.label :t_type, ('Task Type') %>
-  <%= f.select :t_type, options_for_select(["Discovery","Radar","Service"])%>
-  <br \>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br \>
-  <%= f.label :notes %>
-  <%= f.text_field :notes %>
-  <br \>
-  <%= f.label :due_date %>
-  <%= f.datetime_field :due_date %>
-  <br \>
-  <%= f.submit %>
-<% end %>
+<div id="task_form">
+  <%= form_for [@user, @task] do |f| %>
+  <!--   <%= f.label :t_type, ('Task Type') %>
+    <%= f.select :t_type, options_for_select(["Discovery","Radar","Service"])%>
+   -->
+    <div id="form_1"></div>
+    <div id="form_2">
+      <%= f.label :title %> <br \>
+      <%= f.text_field :title, :placeholder => "Catch Up:  Tom Jones" %>
+      <br />
+      <%= f.label :notes %> <br \>
+      <%= f.text_field :notes, :placeholder => "Discuss his new Job"%>
+      <br />
+    </div>
+    <div id="form_3">
+      <%= f.label :due_date %> <br \>
+      <%= f.datetime_field :due_date, :placeholder => Time.now+ 14.days %>
+    </div>
+    <div id="form_4">
+      <%= f.submit 'Create New Task', :class=>'task_button'%>
+    </div>  
+  <% end %>
+</div>

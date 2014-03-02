@@ -1,0 +1,183 @@
+#dash_wrapper {
+  background-color: #e9e9e9;
+  height: 100%;
+  width: 100%;
+}
+
+#person_header h1{
+  font-family: sans-serif;
+}
+
+#action_panel {
+  background-color: #e9e9e9; 
+  width: 950px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.task_table{
+  vertical-align: top;
+  display: inline-block;
+  width: 750px;
+}
+.hint {
+  vertical-align: top;
+  background-color: yellow; 
+  display: inline-block;
+  width: 160px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.hint_border {
+  width: 160px;
+  border: 1px solid black;
+  background-color: black;
+}
+
+.hint_border h4 {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.hint_body {
+  padding-left: 8px;
+}
+
+#nav_panel {
+  background-color: white;
+  width: 250px;
+  display: inline-block;
+  margin-left: 21px;
+}
+
+#task_panel {
+  background-color: white;
+  margin-left: 10px;
+  width: 950px;
+}
+
+#task_panel h2 {
+  font-family: sans-serif;
+}
+
+
+#connection_panel {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: white; 
+  width: 950px;
+
+}
+
+.connection_table{
+  vertical-align: top;
+  display: inline-block;
+  width: 750px;
+}
+
+
+#connection_tile {
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 2px;
+}
+
+#tile_photo{
+  display: inline-block;
+  border: 1px solid gray;
+}
+
+#tile_details{
+  display: inline-block;
+  width: 130px;
+  vertical-align: top;
+}
+
+#tile_coffee{
+  text-align: center;
+  text-decoration: none;
+  background-color: gray;
+}
+
+
+#task_delete{
+  width: 25px;
+}
+
+#task_type{
+  width: 55px;
+}
+
+#task_title{
+  width: 200px;
+}
+
+#task_notes{
+  width: 200px;
+}
+
+#task_due{
+  width: 165px;
+}
+
+#taskfigure{
+  height: 100px;
+  width: 750px;
+  display: inline-block;
+  border-top: 1px dashed black; 
+}
+
+#taskfigure_pic{
+  display: inline-block;
+  width:80px;
+}
+
+#taskfigure_info{
+  display: inline-block;
+  width: 520px;
+}
+
+span#notes{
+  padding-left: 8px;
+  color: gray;
+}
+
+#taskfigure_date{
+  display: inline-block;
+  width: 100px;
+  vertical-align: top
+}
+
+#task_form {
+  background-color: #f5f5dc;
+}
+
+#form_1{ 
+  width: 80px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#form_2{ 
+  display: inline-block;
+  width: 520px;
+  vertical-align: top;
+}
+
+#form_3{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#form_4{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#form_4 .task_button {
+  background-color: gray;
+  font-family: sans-serif;
+  width: 750px;
+}

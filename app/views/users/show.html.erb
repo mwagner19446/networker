@@ -11,35 +11,43 @@
     </h1>
   </div>
 
-
-
   <div id="action_panel">
     <div id="task_panel">
       <div class="task_table">
         <h2>User Tasks: </h2>
         <%= render "taskfigure" %>
+        <%= render "taskform" %>        
       </div>
       <div class="hint">
-        <p>HINT:</p> 
-        <p>Network to identity opportunities</p>
-        <p>Create Actionable Tasks for you to reach your goals</p>
+        <div class="hint_border"><h4>HINT:</h4></div> 
+        <div class="hint_body">
+          <p>Network to identity opportunities</p>
+          <p>Create Actionable Tasks for you to reach your goals</p>
+        </div>
       </div>
     </div>
     <div id="connection_panel">
+    <h2>User Connections:</h2> 
       <div class="connection_table">
-        <%= render "connectiontiles" %>
+        <h3>Connectors</h3>
+        <%= render "connectiontiles_connectors" %>
+        <h3>Mentors</h3>
+        <%= render "connectiontiles_mentors" %>
+        <h3>Peers</h3>
+        <%= render "connectiontiles_peers" %>
       </div>
       <div class="hint">
-        <p>HINT:</p> 
-        <p>CONNECTORS will introduce you to other hiring managers.  (Think Former Bosses)</p>
-        <p>MENTORS have formerly done your job and are now doing the job you want.  Look to them for career path guidance.</p>
-        <p>PEERs currently do the same job as you.  Look to them to develop your craft.</p>
+        <div class="hint_border"><h4>HINT:</h4></div> 
+        <div class="hint_body">
+          <p>CONNECTORS will introduce you to other hiring managers.  (Think Former Bosses)</p>
+          <p>MENTORS have formerly done your job and are now doing the job you want.  Look to them for career path guidance.</p>
+          <p>PEERs currently do the same job as you.  Look to them to develop your craft.</p>
+        </div>
       </div>
     </div>  
   </div>
 
   <div id="nav_panel">
-    <%= render "taskform" %>
     <div class="partner">
       Search our Partners: 
       <%=link_to image_tag("meetup.png"), user_events_path(@user.id) %>
@@ -52,61 +60,5 @@
     </div>
   </div>
 
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div id="dash_wrapper">
-  <div class="person-header">
-  </div>
-  <div class="workspace">
-    
-    <div class="table">
-      
-    </div>
-    <div class="input">
-      
-      </div>
-    </div>
-  </div>
-  <div class="workspace">
-    <h2>User Connections: </h2>
-    <div class="table">
-      <%= render "connectiontable" %>
-    </div>
-    <div class="input">
-      
-    </div>
-  </div>
-</div>
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

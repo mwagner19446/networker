@@ -33,7 +33,10 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
+
+# Use HTTParty for GET Requests
+gem 'httparty'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -44,10 +47,6 @@ end
 # Use debugger
 
 gem 'oauth'
-
-gem 'bcrypt-ruby', '~> 3.1.2'
-
-gem 'httparty'
 
 gem 'rails_12factor'
 

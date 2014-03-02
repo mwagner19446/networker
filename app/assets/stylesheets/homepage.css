@@ -1,0 +1,71 @@
+#problem_panel {
+  height: 300px;
+  width: 100%;
+}
+
+#problem_panel #problem_title {
+  height: 20px;
+  width: 90%; 
+  margin-left: 50px;
+  border-bottom: 1px dashed gray;
+ }
+
+#problem_title #left{ 
+  display: inline-block;
+}
+
+#problem_title #right{
+  display: inline-block;  
+  float: right;
+}
+
+
+#problem_panel #problem_left {
+  height: 200px;
+  width: 45%;
+  margin-left: 14px;
+  display: inline-block;
+  vertical-align: top
+ }
+
+#problem_panel #problem_right {
+  height: 200px;
+  width: 45%;
+  margin-right: 14px;
+  display: inline-block;
+  vertical-align: top
+ }
+
+
+#cta1_panel {
+  height: 50px;
+  width: 100%;
+}
+
+#how_it_works_panel{
+  height: 150px;
+  width: 100%;
+}
+
+#how_it_works_panel #panel_1{  
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+
+#how_it_works_panel #panel_2{  
+  height: 100px;
+  width: 100px;
+  display: inline-block
+}
+
+#how_it_works_panel #panel_3{  
+  height: 100px;
+  width: 100px;
+  display: inline-block
+}
+
+#cta2_panel {
+  height: 150px;
+  width: 100%;
+}

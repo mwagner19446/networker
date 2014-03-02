@@ -43,7 +43,10 @@ class UsersController < ApplicationController
   def show
     @tasks = Task.where(user_id: params[:id])
     @tasks = @tasks.order(:due_date)
-    @connections = Connection.where(user_id: params[:id])
+    @connections_connector = Connection.where("user_id = ? AND c_type = ?", params[:id], "Connector")
+    @connections_mentor = Connection.where("user_id = ? AND c_type = ?", params[:id], "Mentor")
+    @connections_peer = Connection.where("user_id = ? AND c_type = ?", params[:id], "Peer")
+
     @task = Task.new
     @connection = Connection.new
     if current_user.superuser || current_user.id == params[:id].to_i
