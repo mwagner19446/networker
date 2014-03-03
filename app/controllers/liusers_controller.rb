@@ -3,6 +3,8 @@ class LiusersController < ApplicationController
   before_action(:add_token, {only: [:index] })
   
   def index
+
+    @connections = Liuser.joins(:connections).where('connections.user_id' => session[:user_id])
   end 
 
   def create
@@ -11,11 +13,30 @@ class LiusersController < ApplicationController
   def search
     @response = HTTParty.get("https://api.linkedin.com/v1/people/~/connections?format=json&oauth2_access_token=#{@token}")
     @response = @response["values"]
-
+    
     @response.each do |liuser|
+      if liuser["location"].nil?
+        @location = " "
+      else @location = liuser["location"]["name"] 
+      end 
+
+      if liuser["siteStandardProfileRequest"].nil?
+        @url = " "
+      else @url = liuser["siteStandardProfileRequest"]["url"]
+      end 
+
       if Liuser.find_by(linkedin_id: liuser["id"]).nil?
-        Liuser.create(linkedin_id: liuser["id"], first_name: liuser["firstName"], last_name: liuser["lastName"], headline: liuser["headline"], industry: liuser["industry"], picture_url: liuser["pictureUrl"] ) 
-        Connection.create(name: (liuser["firstName"]+" "+liuser["lastName"]), c_type: "NONE", user_id: session[:user_id], photo_url: liuser["pictureUrl"] )
+        li = Liuser.create(
+            linkedin_id: liuser["id"], 
+            first_name: liuser["firstName"], 
+            last_name: liuser["lastName"], 
+            headline: liuser["headline"], 
+            industry: liuser["industry"], 
+            picture_url: liuser["pictureUrl"],
+            location: @location,
+            li_url: @url
+            ) 
+        Connection.create(name: (liuser["firstName"]+" "+liuser["lastName"]), c_type: "NONE", user_id: session[:user_id], photo_url: liuser["pictureUrl"], liuser_id: li.id )
       end 
     end 
 

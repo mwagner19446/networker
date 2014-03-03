@@ -1,6 +1,6 @@
 <h1>Linked In Connections:</h1>
 
-
+<h3>Refresh Your LinkedIn Connections</h3>
 <%if @token.nil? %>
   <%consumer_key = LI_CONSUMER_KEY%>
   <%consumer_secret = LI_CONSUMER_SECRET %>
@@ -9,3 +9,61 @@
   <%=link_to "Fetch Linked In Contacts", search_user_liusers_path(params[:user_id]), method:"post" %>
 <%end%>
 
+
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+<%unless @connections.nil? %>
+<table >
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Location<th>
+    <th>Headline</th>
+    <th><th>
+    <th><th>
+    <th><th>
+    <th><th>
+  </tr>
+  <% @connections.each do |connection| %>
+    <tr>
+      <td><img src="<%=connection.picture_url%>"></td>
+      <td>
+        <%if connection.li_url.nil?%>
+          <%=connection.first_name+' '+connection.last_name%>
+        <%else%>
+          <%=link_to connection.first_name+' '+connection.last_name, connection.li_url%>
+        <%end%>
+      </td>
+      <td>
+        <%=connection.location%>
+      </td>
+      <td><%=connection.headline%></td>
+      <td><%= link_to "Connector",user_connections_path(params[:user_id], 
+            :connection=>{
+              :name=>(connection.first_name), 
+              :photo_url=>connection.picture_url, 
+              :c_type=>"Connector"
+            }
+       ), method: "post" %></td>
+      <td><%= link_to "Mentor", user_connections_path(params[:user_id],
+         :connection=>{
+              :name=>(connection.first_name), 
+              :photo_url=>connection.picture_url, 
+              :c_type=>"Mentor"
+            }
+       ), method: "post" %></td>
+      <td><%= link_to "Peer", user_connections_path(params[:user_id], 
+        :connection=>{
+              :name=>(connection.first_name), 
+              :photo_url=>connection.picture_url, 
+              :c_type=>"Peer"
+            }
+       ), method: "post" %></td>
+    </tr> 
+    <% end %>
+  </table>
+<%end%>
